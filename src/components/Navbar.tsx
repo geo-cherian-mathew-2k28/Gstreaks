@@ -58,7 +58,7 @@ export default function Navbar() {
             Create Card
           </Link>
           <a
-            href="https://github.com/geo-cherian-mathew-2k28/geostreak"
+            href="https://github.com/geo-cherian-mathew-2k28/Gstreaks"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-xl text-streak-muted hover:text-white hover:bg-streak-surface transition-colors"

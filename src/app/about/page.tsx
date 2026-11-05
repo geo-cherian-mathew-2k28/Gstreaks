@@ -77,7 +77,7 @@ export default function AboutPage() {
         </p>
         <div className="pt-2 flex items-center justify-center gap-3">
           <a
-            href="https://github.com/geo-cherian-mathew-2k28/geostreak"
+            href="https://github.com/geo-cherian-mathew-2k28/Gstreaks"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-purple-600 hover:bg-purple-500 transition-colors shadow-lg shadow-purple-600/30"

@@ -42,7 +42,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-streak-muted">
               <li>
                 <a
-                  href="https://github.com/geo-cherian-mathew-2k28/geostreak"
+                  href="https://github.com/geo-cherian-mathew-2k28/Gstreaks"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 hover:text-purple-400 transition-colors"
