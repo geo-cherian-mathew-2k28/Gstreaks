@@ -1,0 +1,39 @@
+{
+  "name": "geostreak",
+  "version": "1.0.0",
+  "description": "An Open-Source, Animated GitHub Contribution Visualization Platform",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geo-cherian-mathew-2k28/geostreak"
+  },
+  "license": "MIT",
+  "author": "Geo Cherian Mathew",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lru-cache": "^11.0.2",
+    "lucide-react": "^1.16.0",
+    "next": "^15.2.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8"
+  }
+}
