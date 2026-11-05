@@ -1,50 +1,202 @@
 # GeoStreak ⚡🔥
 ### An Open-Source, Animated GitHub Contribution Visualization Platform
 
-[![CI](https://github.com/geo-cherian-mathew-2k28/Gstreaks/actions/workflows/ci.yml/badge.svg)](https://github.com/geo-cherian-mathew-2k28/Gstreaks/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Next.js 15](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/)
-[![React 19](https://img.shields.io/badge/React-19-blue?logo=react)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?logo=typescript)](https://www.typescriptlang.org/)
-[![Docker Ready](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker)](Dockerfile)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+<p align="center">
+  <a href="https://github.com/geo-cherian-mathew-2k28/Gstreaks/actions"><img src="https://github.com/geo-cherian-mathew-2k28/Gstreaks/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
+  <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-15-black?logo=next.js" alt="Next.js 15" /></a>
+  <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-19-blue?logo=react" alt="React 19" /></a>
+  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5.8-blue?logo=typescript" alt="TypeScript" /></a>
+  <a href="Dockerfile"><img src="https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker" alt="Docker Ready" /></a>
+</p>
 
-> **GeoStreak** turns your daily GitHub contributions into beautiful, customizable, animated SVG streak cards and cute mascots that you can embed directly into your GitHub profile README.
-
----
-
-## 📑 Table of Contents
-
-- [Overview](#-overview)
-- [How It Works](#-how-it-works)
-- [How to Power It (Production Setup & Deployment)](#-how-to-power-it-production-setup--deployment)
-- [Quick Start](#-quick-start)
-- [Card Layouts](#-card-layouts)
-- [Mascot System](#-mascot-system)
-- [Themes Collection](#-themes-collection)
-- [API Query Parameters](#-api-query-parameters)
-- [Architecture & Security](#-architecture--security)
-- [Self-Hosting (Docker)](#-self-hosting-docker)
-- [Development & Testing](#-development--testing)
-- [Contributing & License](#-contributing--license)
+<p align="center">
+  <strong>Transform your daily GitHub contributions into beautiful, animated SVG cards with dynamic mascot companions for your profile README.</strong>
+</p>
 
 ---
 
-## 🌟 Overview
+## 🎨 Visual Showcase & Card Layouts
 
-GeoStreak is a production-grade, zero-configuration alternative to legacy GitHub streak counters. Unlike older tools that frequently go down or render static text, GeoStreak offers:
-
-- **100% Free & Open-Source**: Public API accessible by anyone worldwide. No account, API key, or payment required.
-- **Accurate Streak Math**: Independently counts current consecutive active days, longest streaks, and totals, accounting for multi-timezone midnight buffers.
-- **Cute Mascots Squad**: 6 original vector mascots (**Streaky**, **Gitty**, **Mochi**, **Byte**, **Spark**, **Blob**) that react dynamically to your streak tier with sleeping, smiling, celebrating, and legendary expressions.
-- **15+ Developer & Creative Themes**: Tokyo Night, Dracula, Nord, GitHub Dark, GitHub Light, Monokai, Catppuccin Mocha, One Dark, Lavender Dreams, Sakura, Ocean Breeze, Sunset, Cyberpunk, Pastel Candy, and Midnight Galaxy.
-- **7 Card Layouts**: Classic, Minimal, Contribution Graph Heatmap, Mascot Hero, Terminal CLI, Glassmorphism, and Compact.
-- **GitHub Camo Proxy Safe**: Returns pure SVG XML with embedded CSS animations and a static fallback switch (`&animation=false`).
-- **High Reliability**: Multi-tier caching (in-memory LRU + optional Upstash Redis), in-flight request deduplication, and token rotation.
+GeoStreak includes **7 distinct card layouts** designed to fit any GitHub profile aesthetic—from retro terminals to sleek glassmorphism.
 
 ---
 
-## ⚙️ How It Works
+### 1. 🏆 Classic Streak Card (`layout=classic`)
+*The iconic 3-column streak card featuring a burning animated flame, personal best trophy, total commits counter, streak tier rank badge, and animated mascot.*
+
+<p align="center">
+  <img src="https://geostreak.vercel.app/api?user=geo-cherian-mathew-2k28&theme=tokyo-night&layout=classic" alt="Classic Layout Preview" />
+</p>
+
+```markdown
+![Classic Streak Card](https://geostreak.vercel.app/api?user=YOUR_USERNAME&theme=tokyo-night&layout=classic)
+```
+- **Key Features:** Burning flame pulse animation, personal record badge, active date range labels, and right-side mascot.
+- **Best For:** Centered hero banner in your main profile README.
+
+---
+
+### 2. 💻 Terminal CLI Layout (`layout=terminal`)
+*Inspired by developer zsh/bash command lines, complete with window controls, interactive prompt, ASCII borders, and a blinking cursor.*
+
+<p align="center">
+  <img src="https://geostreak.vercel.app/api?user=geo-cherian-mathew-2k28&theme=cyberpunk&layout=terminal" alt="Terminal Layout Preview" />
+</p>
+
+```markdown
+![Terminal Layout](https://geostreak.vercel.app/api?user=YOUR_USERNAME&theme=cyberpunk&layout=terminal)
+```
+- **Key Features:** Red/yellow/green macOS window dots, `$ geostreak stats --user` command prompt, formatted ASCII metrics box, blinking cursor, and retro CLI mascot.
+- **Best For:** Developers who love dark mode, Linux, Neovim, and terminal aesthetics.
+
+---
+
+### 3. 🔮 Glassmorphism Layout (`layout=glass`)
+*Ultra-modern translucent frosted glass card with glowing radial ambient light orbs and luminous gradient reflections.*
+
+<p align="center">
+  <img src="https://geostreak.vercel.app/api?user=geo-cherian-mathew-2k28&theme=midnight-galaxy&layout=glass" alt="Glass Layout Preview" />
+</p>
+
+```markdown
+![Glass Layout](https://geostreak.vercel.app/api?user=YOUR_USERNAME&theme=midnight-galaxy&layout=glass)
+```
+- **Key Features:** Multi-stop radial glow orbs, frosted glass effect (`backdrop-filter`), subtle borders, floating mascot.
+- **Best For:** Modern portfolio READMEs and designers/engineers who want sleek aesthetics.
+
+---
+
+### 4. 📊 Heatmap Contribution Graph Layout (`layout=graph`)
+*Embeds your actual 28-week GitHub contribution heatmap mini-grid directly alongside your streak numbers and mascot.*
+
+<p align="center">
+  <img src="https://geostreak.vercel.app/api?user=geo-cherian-mathew-2k28&theme=github-dark&layout=graph" alt="Graph Layout Preview" />
+</p>
+
+```markdown
+![Graph Layout](https://geostreak.vercel.app/api?user=YOUR_USERNAME&theme=github-dark&layout=graph)
+```
+- **Key Features:** Real daily contribution cells color-graded by theme intensity levels, top summary stats, bottom legend bar.
+- **Best For:** Showing your daily coding consistency visually on a single card.
+
+---
+
+### 5. 🦄 Mascot Hero Layout (`layout=mascot`)
+*Puts your chosen mascot front and center with a dynamic speech bubble that reacts to your streak status with motivational lines.*
+
+<p align="center">
+  <img src="https://geostreak.vercel.app/api?user=geo-cherian-mathew-2k28&theme=sakura&layout=mascot&mascot=mochi" alt="Mascot Layout Preview" />
+</p>
+
+```markdown
+![Mascot Hero](https://geostreak.vercel.app/api?user=YOUR_USERNAME&theme=sakura&layout=mascot&mascot=mochi)
+```
+- **Key Features:** Large 120px mascot illustration, animated speech bubble pointer, responsive stats cards.
+- **Best For:** Friendly, playful READMEs that stand out from ordinary profile templates.
+
+---
+
+### 6. ⚡ Minimalist Bar (`layout=minimal`)
+*A compact, low-profile card focusing solely on the core streak numbers with zero visual clutter.*
+
+<p align="center">
+  <img src="https://geostreak.vercel.app/api?user=geo-cherian-mathew-2k28&theme=nord&layout=minimal" alt="Minimal Layout Preview" />
+</p>
+
+```markdown
+![Minimal Layout](https://geostreak.vercel.app/api?user=YOUR_USERNAME&theme=nord&layout=minimal)
+```
+- **Key Features:** 460x125 compact dimensions, inline metrics, sleek background gradient.
+- **Best For:** Minimalists who prefer high density and subtle profile headers.
+
+---
+
+### 7. 📏 Compact Horizontal Banner (`layout=compact`)
+*Designed specifically for profile headers where vertical space is limited. Fits neatly alongside other shields and badges.*
+
+<p align="center">
+  <img src="https://geostreak.vercel.app/api?user=geo-cherian-mathew-2k28&theme=dracula&layout=compact" alt="Compact Layout Preview" />
+</p>
+
+```markdown
+![Compact Banner](https://geostreak.vercel.app/api?user=YOUR_USERNAME&theme=dracula&layout=compact)
+```
+- **Key Features:** 90px ultra-slim height, side-by-side metric badges, mini mascot on left.
+- **Best For:** Placing at the very top of your README under your name and bio.
+
+---
+
+## 🐾 Meet the Mascots Squad
+
+Every mascot is an original vector character created for GeoStreak that evolves visually as your streak increases:
+
+| Mascot | Name | Tagline | Personality & Concept |
+| :---: | :--- | :--- | :--- |
+| 🟣 | **Streaky** | The Cosmic Flame | A cheerful purple flame spirit born from uninterrupted git commit streaks. |
+| 🔵 | **Gitty** | The Branch Guardian | An adorable creature made of git commit nodes and branching antenna paths. |
+| 🥟 | **Mochi** | The Cozy Dumpling | An impossibly squishy dumpling who cheers for your daily coding habits. |
+| 🤖 | **Byte** | The Pixel Bot | A retro terminal droid that displays stats on its glowing CRT screen. |
+| ⭐ | **Spark** | The Cosmic Star | A brilliant celestial star sprite that ignites with each consecutive day. |
+| 🫧 | **Blob** | The Jellicode | A bouncy shapeshifting jelly creature that absorbs bugs and radiates energy. |
+
+### Dynamic Streak Milestones & Expressions
+- 💤 **0 Days (Sleepy)**: Mascot is curled up asleep with floating `Zzz` particles awaiting your next commit.
+- 😊 **1–3 Days (Bronze Tier)**: Blushing smile cheering your streak inception.
+- ✨ **4–7 Days (Silver Tier)**: Starry excited eyes celebrating a full 7-day week.
+- 🎉 **8–30 Days (Gold Tier)**: Celebration party mode with confetti and particle pops.
+- 🌌 **31–99 Days (Diamond Tier)**: Glowing celestial cyan halo hovering above the mascot.
+- 👑 **100+ Days (Legendary Tier)**: Unlocks the royal golden crown with embedded gemstones!
+
+---
+
+## 🎨 Themes Collection (15+ Available)
+
+| Category | Theme Name | ID | Primary Accent | Background Preview |
+| :--- | :--- | :--- | :--- | :--- |
+| **Developer** | Tokyo Night | `tokyo-night` | `#7aa2f7` | `background: #1a1b26` |
+| **Developer** | Dracula | `dracula` | `#bd93f9` | `background: #282a36` |
+| **Developer** | Nord | `nord` | `#88c0d0` | `background: #2e3440` |
+| **Developer** | GitHub Dark | `github-dark` | `#58a6ff` | `background: #0d1117` |
+| **Developer** | GitHub Light | `github-light` | `#0969da` | `background: #ffffff` |
+| **Developer** | Monokai | `monokai` | `#a6e22e` | `background: #272822` |
+| **Developer** | Catppuccin Mocha | `catppuccin-mocha` | `#cba6f7` | `background: #1e1e2e` |
+| **Developer** | One Dark | `one-dark` | `#61afef` | `background: #282c34` |
+| **Creative** | Lavender Dreams | `lavender-dreams` | `#b794f4` | `background: #171427` |
+| **Creative** | Sakura | `sakura` | `#ec4899` | `background: #fff5f7` |
+| **Creative** | Ocean Breeze | `ocean-breeze` | `#64ffda` | `background: #0a192f` |
+| **Creative** | Sunset | `sunset` | `#F97316` | `background: #18122B` |
+| **Creative** | Cyberpunk | `cyberpunk` | `#ff007f` | `background: #05050d` |
+| **Creative** | Pastel Candy | `pastel-candy` | `#ff92a5` | `background: #fdf4f5` |
+| **Creative** | Midnight Galaxy | `midnight-galaxy` | `#a855f7` | `background: #090a0f` |
+
+---
+
+## 🛠️ API Query Parameters
+
+Endpoint: `GET /api?user=<username>`
+
+| Parameter | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `user` | `string` | **Required** | Target GitHub username (e.g. `torvalds`) |
+| `theme` | `string` | `tokyo-night` | Theme ID (`dracula`, `cyberpunk`, `nord`, etc.) |
+| `layout` | `string` | `classic` | `classic`, `minimal`, `graph`, `mascot`, `terminal`, `glass`, `compact` |
+| `mascot` | `string` | `streaky` | `streaky`, `gitty`, `mochi`, `byte`, `spark`, `blob` |
+| `expression`| `string`| `auto` | `idle`, `happy`, `excited`, `sleeping`, `surprised`, `celebrating`, `determined` |
+| `animation` | `boolean`| `true` | Set `false` for static SVG without CSS keyframes |
+| `hide_border`| `boolean`| `false`| Hides outer card border |
+| `hide_title` | `boolean`| `false`| Hides top username / title header |
+| `hide_current_streak` | `boolean` | `false` | Hides current streak metric |
+| `hide_longest_streak` | `boolean` | `false` | Hides longest streak metric |
+| `hide_total_contributions` | `boolean` | `false` | Hides total contributions |
+| `background` | `hex` | `theme.bg` | Custom background color (e.g. `0D1117`) |
+| `border` | `hex` | `theme.border` | Custom border color |
+| `text` | `hex` | `theme.text` | Custom text color |
+| `radius` | `number` | `14` | Corner radius in pixels (0–32) |
+
+---
+
+## ⚙️ How GeoStreak Works
 
 ```
                                 [ GitHub Profile README ]
@@ -88,164 +240,53 @@ GeoStreak is a production-grade, zero-configuration alternative to legacy GitHub
                             - Content-Type: image/svg+xml
 ```
 
-1. **Request Received**: When a GitHub profile is viewed, GitHub's Camo image proxy issues a `GET /api?user=username` request to GeoStreak.
-2. **Caching & Deduplication**: GeoStreak checks the in-memory LRU cache (or Upstash Redis if enabled). If multiple users view the same profile simultaneously, an in-flight Promise pool ensures only **one** request reaches GitHub's API.
-3. **Data Retrieval**: GeoStreak fetches the user's exact contribution calendar via GitHub GraphQL using a server-side Personal Access Token (PAT). If no token is configured, it seamlessly falls back to a public parser.
-4. **Streak Calculation**: The engine evaluates consecutive days. If a user hasn't committed yet today, the streak remains active through yesterday, allowing until midnight in their local timezone to commit.
-5. **SVG Synthesis**: The engine resolves the theme, mascot, and expression, and returns a fully compliant, self-contained SVG with `Cache-Control: public, max-age=1200`.
+1. **GitHub Camo Request**: When a profile is viewed, GitHub's Camo image proxy fetches the SVG from `GET /api?user=username`.
+2. **LRU Caching & Deduplication**: If recently requested, GeoStreak returns the cached SVG in `< 15ms`. If multiple users request simultaneously, an in-flight Promise pool ensures only **one** request reaches GitHub's API.
+3. **GraphQL Retrieval**: Queries GitHub GraphQL API for the exact contribution calendar. If no token is set on the server, it seamlessly falls back to a public parser.
+4. **Timezone-Aware Streak Math**: If a user hasn't committed yet today, the streak remains active through yesterday (giving the user until midnight in their local timezone to commit).
+5. **Sanitized Output**: Pure SVG XML is returned with `Cache-Control: public, max-age=1200, s-maxage=1800`.
 
 ---
 
-## ⚡ How to Power It (Production Setup & Deployment)
+## ⚡ How to Power It (Deployment & Production Setup)
 
-To run your own hosted instance of GeoStreak with high traffic throughput (100,000+ card views/day), follow these steps:
+### 1. Create a GitHub Personal Access Token (PAT)
+A server token increases GitHub rate limits from 60/hr to **5,000 requests/hour**!
 
-### 1. Acquire a GitHub Personal Access Token (PAT)
-GitHub's public API allows only 60 requests/hour unauthenticated. A GitHub PAT raises this limit to **5,000 requests/hour**!
+1. Go to [GitHub Settings → Personal Access Tokens → Tokens (classic)](https://github.com/settings/tokens).
+2. Generate a new token with **no scopes checked** (public contribution graphs need no special permissions).
+3. Copy the token (`ghp_...`).
+4. *(Optional)* Add multiple tokens separated by commas (`GITHUB_TOKENS=tok1,tok2,tok3`) for automated round-robin load balancing!
 
-1. Go to [GitHub Settings → Developer Settings → Personal Access Tokens → Tokens (classic)](https://github.com/settings/tokens).
-2. Click **Generate new token (classic)**.
-3. Give it a name (e.g. `GeoStreak API`).
-4. **No scopes are needed** for public user contributions! Leave all checkmarks empty.
-5. Copy the generated token (`ghp_...`).
-
-> **Pro Tip (Token Pool)**: GeoStreak supports round-robin load balancing across multiple tokens! You can configure `GITHUB_TOKENS=token1,token2,token3` to scale to 15,000+ requests/hour.
-
-### 2. Deploy to Vercel (Recommended - 1 Click)
-1. Fork or push this repository to your GitHub account (`https://github.com/geo-cherian-mathew-2k28/Gstreaks`).
-2. Go to [Vercel](https://vercel.com) and click **Add New Project**.
-3. Import your `Gstreaks` repository.
-4. Under **Environment Variables**, add:
-   - `GITHUB_TOKEN`: Your GitHub token from Step 1.
+### 2. Deploy to Vercel in 1 Click
+1. Fork or import this repository on [Vercel](https://vercel.com).
+2. Add your environment variables:
+   - `GITHUB_TOKEN`: `ghp_your_token_here`
    - `NEXT_PUBLIC_APP_URL`: `https://your-domain.vercel.app`
-5. Click **Deploy**. Your custom instance is live in under 60 seconds!
+3. Click **Deploy**. Your custom instance is live worldwide in seconds!
 
-### 3. Optional: Distributed Redis Caching (Upstash)
-By default, GeoStreak uses high-performance in-memory LRU caching. To share cache across global edge serverless functions:
+### 3. Optional: Distributed Redis Caching
+For serverless scaling across independent edge regions:
 1. Create a free database at [Upstash Redis](https://upstash.com).
-2. Add these environment variables in Vercel:
-   - `UPSTASH_REDIS_REST_URL`: Your Upstash REST URL.
-   - `UPSTASH_REDIS_REST_TOKEN`: Your Upstash REST token.
+2. Set `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` in your environment.
 3. GeoStreak will automatically detect Redis and activate distributed caching.
 
 ---
 
-## 🚀 Quick Start
-
-Paste this into your GitHub profile `README.md` (replace `YOUR_USERNAME` with your GitHub handle):
-
-### Markdown
-```markdown
-[![GeoStreak](https://geostreak.vercel.app/api?user=YOUR_USERNAME)](https://github.com/geo-cherian-mathew-2k28/Gstreaks)
-```
-
-### HTML
-```html
-<a href="https://github.com/geo-cherian-mathew-2k28/Gstreaks">
-  <img src="https://geostreak.vercel.app/api?user=YOUR_USERNAME" alt="GeoStreak" />
-</a>
-```
-
----
-
-## 📐 Card Layouts
-
-| Layout | ID | Description | Example URL Parameter |
-| :--- | :--- | :--- | :--- |
-| **Classic** | `classic` | 3-column stats card with flame, trophy, total, and animated mascot | `&layout=classic` |
-| **Minimal** | `minimal` | Sleek, compact horizontal stats bar | `&layout=minimal` |
-| **Heatmap Graph** | `graph` | Real GitHub contribution heatmap mini-grid (28 weeks × 7 days) | `&layout=graph` |
-| **Mascot Hero** | `mascot` | Prominent character hero with dynamic speech bubble | `&layout=mascot` |
-| **Terminal CLI** | `terminal` | Developer CLI terminal with zsh prompt, command output, and cursor | `&layout=terminal` |
-| **Glassmorphism**| `glass` | Frosted glass surfaces with ambient radial light orbs | `&layout=glass` |
-| **Compact** | `compact` | Ultra-slim horizontal banner designed for narrow header slots | `&layout=compact` |
-
----
-
-## 🐾 Mascot System
-
-| Mascot | ID | Tagline | Character Concept |
-| :---: | :--- | :--- | :--- |
-| 🟣 | `streaky` | The Cosmic Flame | Playful purple flame spirit born from unbroken git commit streaks. |
-| 🔵 | `gitty` | The Branch Guardian | Adorable creature made of git commit nodes and branching paths. |
-| 🥟 | `mochi` | The Cozy Dumpling | Squishy marshmallow dumpling cheering for daily coding habits. |
-| 🤖 | `byte` | The Pixel Bot | Pocket-sized retro terminal droid that displays stats on its CRT screen. |
-| ⭐ | `spark` | The Cosmic Star | Celestial star sprite that ignites with each consecutive day. |
-| 🫧 | `blob` | The Jellicode | Bouncy shapeshifting jelly creature that absorbs bugs and radiates energy. |
-
-### Dynamic Streak Milestones
-- **0 Days (Dormant)**: Curled up asleep with floating `Zzz` particles.
-- **1–3 Days (Bronze)**: Warm smile and blushing cheeks.
-- **4–7 Days (Silver)**: Starry excited eyes celebrating a full week.
-- **8–30 Days (Gold)**: Party celebration with confetti sparks.
-- **31–99 Days (Diamond)**: Luminous cyan celestial halo.
-- **100+ Days (Legendary)**: Golden royal crown with jewel insets.
-
----
-
-## 🎨 Themes Collection
-
-| Category | Theme Name | ID | Background | Primary Accent |
-| :--- | :--- | :--- | :--- | :--- |
-| **Developer** | Tokyo Night | `tokyo-night` | `#1a1b26` | `#7aa2f7` |
-| **Developer** | Dracula | `dracula` | `#282a36` | `#bd93f9` |
-| **Developer** | Nord | `nord` | `#2e3440` | `#88c0d0` |
-| **Developer** | GitHub Dark | `github-dark` | `#0d1117` | `#58a6ff` |
-| **Developer** | GitHub Light | `github-light` | `#ffffff` | `#0969da` |
-| **Developer** | Monokai | `monokai` | `#272822` | `#a6e22e` |
-| **Developer** | Catppuccin Mocha | `catppuccin-mocha` | `#1e1e2e` | `#cba6f7` |
-| **Developer** | One Dark | `one-dark` | `#282c34` | `#61afef` |
-| **Creative** | Lavender Dreams | `lavender-dreams` | `#171427` | `#b794f4` |
-| **Creative** | Sakura | `sakura` | `#fff5f7` | `#ec4899` |
-| **Creative** | Ocean Breeze | `ocean-breeze` | `#0a192f` | `#64ffda` |
-| **Creative** | Sunset | `sunset` | `#18122B` | `#F97316` |
-| **Creative** | Cyberpunk | `cyberpunk` | `#05050d` | `#ff007f` |
-| **Creative** | Pastel Candy | `pastel-candy` | `#fdf4f5` | `#ff92a5` |
-| **Creative** | Midnight Galaxy | `midnight-galaxy` | `#090a0f` | `#a855f7` |
-
----
-
-## 🛠️ API Query Parameters
-
-| Parameter | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `user` | `string` | **Required** | GitHub username (e.g. `torvalds`) |
-| `theme` | `string` | `tokyo-night` | Predefined visual theme |
-| `layout` | `string` | `classic` | `classic`, `minimal`, `graph`, `mascot`, `terminal`, `glass`, `compact` |
-| `mascot` | `string` | `streaky` | `streaky`, `gitty`, `mochi`, `byte`, `spark`, `blob` |
-| `expression`| `string`| `auto` | `idle`, `happy`, `excited`, `sleeping`, `surprised`, `celebrating`, `determined` |
-| `animation` | `boolean`| `true` | Set `false` for static SVG without CSS animations |
-| `hide_border`| `boolean`| `false`| Hides card border |
-| `hide_title` | `boolean`| `false`| Hides username title bar |
-| `hide_current_streak` | `boolean` | `false` | Hides current streak column |
-| `hide_longest_streak` | `boolean` | `false` | Hides longest streak column |
-| `hide_total_contributions` | `boolean` | `false` | Hides total contributions |
-| `background` | `hex` | `theme.bg` | Custom background color (e.g. `0D1117`) |
-| `border` | `hex` | `theme.border` | Custom border color |
-| `text` | `hex` | `theme.text` | Custom text color |
-| `radius` | `number` | `14` | Card corner radius in pixels (0–32) |
-
----
-
-## 🐳 Self-Hosting (Docker)
-
-You can self-host GeoStreak with a single Docker command:
+## 🐳 Self-Hosting with Docker
 
 ```bash
-# 1. Clone repository
+# 1. Clone the repository
 git clone https://github.com/geo-cherian-mathew-2k28/Gstreaks.git
 cd Gstreaks
 
-# 2. Configure your GitHub token
+# 2. Configure environment
 cp .env.example .env
-# Edit .env and paste your GITHUB_TOKEN
 
 # 3. Launch Docker Compose
 docker compose up -d
-```
 
-Verify service health:
-```bash
+# 4. Check health
 curl http://localhost:3000/api/health
 ```
 
@@ -272,9 +313,7 @@ npm run build
 
 ---
 
-## 📄 Contributing & License
-
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+## 📄 License & Maintainer
 
 GeoStreak is licensed under the [MIT License](LICENSE).  
 Maintained with ❤️ by [Geo Cherian Mathew](https://github.com/geo-cherian-mathew-2k28).
